@@ -1,0 +1,33 @@
+name: Deploy to Github Pages
+on:
+    push:
+        branches: [ main ]
+
+jobs:
+  deploy:
+        name: Deploy docs on github pages
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout to the repo
+              uses: actions/checkout@v2
+
+            - name: Setting up node-environment
+              uses: actions/setup-node@v1
+              with:
+                node-version: 14.x
+            
+            - name: Instrall packages
+              run: |
+                npm install -g @vue/cli
+                npm install
+            
+            - name: Building application
+              run: npm run build
+
+            - name: Deploy to pages
+              uses: s0/git-publish-subdir-action@deploy
+              env:
+                REPO: self
+                BRANCH: deploy
+                FOLDER: dist
+                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
