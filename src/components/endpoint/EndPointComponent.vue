@@ -1,0 +1,84 @@
+<template>
+  <v-container>
+    <v-row align="center" :class="`endpoint ${method}`">
+      <v-btn :class="`endpoint__btn ${method}`">
+        {{ method.toUpperCase() }}
+      </v-btn>
+      <h4>{{ urlEndPoint }}</h4>
+      <h4 class="endpoint__desc">{{ description }}</h4>
+    </v-row>
+  </v-container>
+</template>
+<script>
+export default {
+  props: {
+    method: {
+      default: "get",
+      validator: (x) => ["get", "post", "patch", "put", "delete"].includes(x),
+    },
+    urlEndPoint: {
+      default: ""
+    },
+    description: {
+      default: ""
+    }
+  },
+};
+</script>
+<style lang="scss">
+$get-color: #90caf9;
+$get-color-lighter: #e3f2fd;
+
+$post-color: #81c784;
+$post-color-lighter: #c8e6c9;
+
+$put-color: #fff176;
+$put-color-lighter: #fff9c4;
+
+$delete-color: #e57373;
+$delete-color-lighter: #ffcdd2;
+
+.endpoint {
+  padding: 5px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+
+  &.get {
+    background-color: $get-color-lighter;
+  }
+  &.post {
+    background-color: $post-color-lighter;
+  }
+  &.put {
+    background-color: $put-color-lighter;
+  }
+  &.delete {
+    background-color: $delete-color-lighter;
+  }
+
+  &__btn {
+    pointer-events: none;
+    margin-right: 1rem;
+
+    &.get {
+      background-color: $get-color !important;
+    }
+    &.post {
+      background-color: $post-color !important;
+    }
+    &.put {
+      background-color: $put-color !important;
+    }
+    &.delete {
+      background-color: $delete-color !important;
+    }
+  }
+
+  &__desc {
+    font-weight: 400;
+    margin-left: 32px;
+    color: grey;
+    text-transform: uppercase;
+  }
+}
+</style>
