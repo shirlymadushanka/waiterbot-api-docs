@@ -32,8 +32,16 @@ export default {
         link: "/",
         sublinks: [
           {
-            name: "Store login",
-            link: { name: "auth-login" },
+            name: "Store owner login",
+            link: { name: "store-owner-login" },
+          },
+          {
+            name: "Store Operator register",
+            link: { name: "store-operator-register" },
+          },
+          {
+            name: "Store operator login",
+            link: { name: "store-operator-login" },
           },
         ],
       },
@@ -47,7 +55,7 @@ export default {
           },
           {
             name: "Edit store details",
-            link: "/about",
+            link: { name: "store-edit" },
           },
           {
             name: "Get all food items",

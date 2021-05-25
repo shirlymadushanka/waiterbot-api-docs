@@ -11,14 +11,30 @@ const routes = [
     component: Home,
   },
   {
-    path: "/auth/loginToStore",
-    name: "auth-login",
-    component: () => import("../views/authentication/LoginToTheStore.vue"),
+    path: "/auth/owner-login",
+    name: "store-owner-login",
+    component: () => import("../views/authentication/StoreOwnerLogin.vue"),
+  },
+  {
+    path: "/auth/operator-login",
+    name: "store-operator-login",
+    component: () => import("../views/authentication/StoreOperatorLogin.vue"),
+  },
+  {
+    path: "/auth/operator-register",
+    name: "store-operator-register",
+    component: () =>
+      import("../views/authentication/StoreOperatorRegister.vue"),
   },
   {
     path: "/store/getDetails",
     name: "store-get",
     component: () => import("../views/store/GetStoreDetails.vue"),
+  },
+  {
+    path: "/store/editDetails",
+    name: "store-edit",
+    component: () => import("../views/store/EditStoreDetails.vue"),
   },
 ];
 

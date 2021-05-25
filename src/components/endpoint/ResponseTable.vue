@@ -6,7 +6,7 @@
         <thead>
           <tr>
             <th class="text-left">
-              Name
+              Response Code
             </th>
             <th class="text-left">
               Description
@@ -14,13 +14,9 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="item in params" :key="item.name">
-            <td>{{ item.param }}</td>
+          <tr v-for="item in responses" :key="item.name">
+            <td>{{ item.code }}</td>
             <td>
-              <template v-if="item.type">
-                <b>{{ item.type }}</b
-                ><br />
-              </template>
               {{ item.description }}
             </td>
           </tr>
@@ -33,7 +29,7 @@
 <script>
 export default {
   props: {
-    params: {
+    responses: {
       default: [],
     },
     title: {
@@ -45,7 +41,7 @@ export default {
 
 <style lang="scss" scoped>
 .v-data-table {
-  border: 1px solid rgb(37, 37, 117);
+  border: 1px solid rgb(223, 201, 81);
   border-radius: 10px;
   padding: 5px;
 }
@@ -58,7 +54,7 @@ export default {
     top: -5px;
     left: 10px;
     z-index: 4;
-    background-color: rgb(46, 46, 158);
+    background-color: rgb(143, 124, 20);
     padding: 0 10px;
     border-radius: 10px;
     color: white;
