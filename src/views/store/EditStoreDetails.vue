@@ -81,7 +81,7 @@ export default {
         {
           code: 401,
           description:
-            "Unauthorized! (Only store owner can perfome this action)",
+            "Unauthorized! (Only store owner can perform this action)",
         },
         {
           code: 422,

@@ -58,12 +58,20 @@ export default {
             link: { name: "store-edit" },
           },
           {
+            name: "Add/remove store image",
+            link: { name: "store-image-ops" },
+          },
+          {
             name: "Get all food items",
-            link: "/fdfsd",
+            link: { name: "store-get-items" },
           },
           {
             name: "Register a food item",
-            link: "/fds",
+            link: { name: "store-register-items" },
+          },
+          {
+            name: "Get all available robots",
+            link: { name: "store-get-robots" },
           },
           {
             name: "Get all tables in store",

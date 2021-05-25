@@ -36,6 +36,26 @@ const routes = [
     name: "store-edit",
     component: () => import("../views/store/EditStoreDetails.vue"),
   },
+  {
+    path: "/store/addOrRemoveImage",
+    name: "store-image-ops",
+    component: () => import("../views/store/AddOrRemoveStoreImage.vue"),
+  },
+  {
+    path: "/store/get-items",
+    name: "store-get-items",
+    component: () => import("../views/store/GetFoodItemsInStore.vue"),
+  },
+  {
+    path: "/store/register-items",
+    name: "store-register-items",
+    component: () => import("../views/store/RegisterFoodItemInStore.vue"),
+  },
+  {
+    path: "/store/get-robots",
+    name: "store-get-robots",
+    component: () => import("../views/store/GetRobotDetails.vue"),
+  },
 ];
 
 const router = new VueRouter({
