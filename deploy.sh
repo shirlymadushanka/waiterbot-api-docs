@@ -1,13 +1,19 @@
 #!/usr/bin/env sh
+
 # abort on errors
 set -e
+
+# checkout to gh-pages
+git checkout --orphan gh-pages
+
 # build
 npm run build
-# navigate into the build output directory
-cd dist
 
-git init
-git add -A
-git commit -m 'deploy'
-git push -f git@github.com:shirlymadushanka/waiterbot-api-docs.git main:gh-pages
-cd -
+git --work-tree dist add --all
+git --work-tree dist commit -m "Deploy"
+
+git push origin HEAD:gh-pages --force
+
+rm -rf dist
+git checkout -f main
+git branch -D gh-pages
