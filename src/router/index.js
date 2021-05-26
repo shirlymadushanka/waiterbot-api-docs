@@ -56,6 +56,26 @@ const routes = [
     name: "store-get-robots",
     component: () => import("../views/store/GetRobotDetails.vue"),
   },
+  {
+    path: "/store/get-tables",
+    name: "store-get-tables",
+    component: () => import("../views/store/GetTableDetails.vue"),
+  },
+  {
+    path: "/store/register-tables",
+    name: "store-register-tables",
+    component: () => import("../views/store/RegisterTableDetails.vue"),
+  },
+  {
+    path: "/store/edit-del-tables",
+    name: "store-edit-del-tables",
+    component: () => import("../views/store/EditTableDetails.vue"),
+  },
+  {
+    path: "/store/get-orders",
+    name: "store-get-orders",
+    component: () => import("../views/store/GetOrderDetails.vue"),
+  },
 ];
 
 const router = new VueRouter({

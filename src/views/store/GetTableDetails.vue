@@ -1,18 +1,18 @@
 <template>
   <div>
     <EndPointComponent
-      urlEndPoint="/properties/:id"
-      description="Retreive store data"
-      :accessList="['public']"
+      urlEndPoint="/properties/:id/tables"
+      description="Retreive available tables in store"
+      :accessList="['OWNER', 'OPERATOR']"
     />
-    <!-- <ParamsTable :params="params" title="Header parameters" /> -->
+    <ParamsTable :params="params" title="Header parameters" />
     <ExampleReqResObjects :responseExample="responseExample" />
     <ResponseTable :responses="responses" title="Expected responses" />
   </div>
 </template>
 
 <script>
-// import ParamsTable from "@/components/endpoint/ParamsTable.vue";
+import ParamsTable from "@/components/endpoint/ParamsTable.vue";
 import EndPointComponent from "@/components/endpoint/EndPointComponent.vue";
 import ExampleReqResObjects from "@/components/endpoint/ExampleReqResObjects.vue";
 import ResponseTable from "@/components/endpoint/ResponseTable.vue";
@@ -28,35 +28,36 @@ export default {
         },
       ],
       responseExample: {
-        data: {
-          _id: "6009beb47b6077088836fca5",
-          name: "New Lindu Hotel",
-          description: "New Lindu Hotel description",
-          address: "Peradeniya,Kandy",
-          location: {
-            type: "Point",
-            coordinates: [-127.5, 30.7],
+        data: [
+          {
+            turn_direction: "left",
+            _id: "6011e229f94ee1415029714d",
+            property: "6009beb47b6077088836fca5",
+            table_number: "10",
+            junction: 4,
+            createdAt: "2021-01-27T21:59:05.320Z",
+            updatedAt: "2021-01-27T22:31:15.124Z",
+            __v: 0,
           },
-          imgUrl: "store image url",
-          owner: {
-            userType: "Owner",
-            first_name: "kavindu",
-            last_name: "chamith",
-          },
-        },
-        message: "Properties fetched successfully.",
+        ],
+        message: "Table fetched successfully.",
         success: true,
       },
       responses: [
         {
           code: 200,
-          description: "Stores fetched successfully!",
+          description: "Robots fetched successfully!",
+        },
+        {
+          code: 401,
+          description:
+            "Unauthorized! (Only shop owner or operator can perform this action)",
         },
       ],
     };
   },
   components: {
-    // ParamsTable,
+    ParamsTable,
     EndPointComponent,
     ExampleReqResObjects,
     ResponseTable,

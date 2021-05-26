@@ -75,7 +75,19 @@ export default {
           },
           {
             name: "Get all tables in store",
-            link: "/dfsf",
+            link: { name: "store-get-tables" },
+          },
+          {
+            name: "Add a new tables in store",
+            link: { name: "store-register-tables" },
+          },
+          {
+            name: "Edit/Delete tables in store",
+            link: { name: "store-edit-del-tables" },
+          },
+          {
+            name: "Get order details in store",
+            link: { name: "store-get-orders" },
           },
         ],
       },

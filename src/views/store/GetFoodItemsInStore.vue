@@ -3,16 +3,16 @@
     <EndPointComponent
       urlEndPoint="/properties/:id/items"
       description="Retreive food items in store"
-      :accessList="['ALL Authenticated users']"
+      :accessList="['Public']"
     />
-    <ParamsTable :params="params" title="Header parameters" />
+    <!-- <ParamsTable :params="params" title="Header parameters" /> -->
     <ExampleReqResObjects :responseExample="responseExample" />
     <ResponseTable :responses="responses" title="Expected responses" />
   </div>
 </template>
 
 <script>
-import ParamsTable from "@/components/endpoint/ParamsTable.vue";
+// import ParamsTable from "@/components/endpoint/ParamsTable.vue";
 import EndPointComponent from "@/components/endpoint/EndPointComponent.vue";
 import ExampleReqResObjects from "@/components/endpoint/ExampleReqResObjects.vue";
 import ResponseTable from "@/components/endpoint/ResponseTable.vue";
@@ -65,7 +65,7 @@ export default {
     };
   },
   components: {
-    ParamsTable,
+    // ParamsTable,
     EndPointComponent,
     ExampleReqResObjects,
     ResponseTable,
