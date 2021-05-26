@@ -1,18 +1,25 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <MainDetailArea title="Introduction">
+      You can access your store data though our API. So have the power to plug
+      your existing application with
+      <span class="brandName">WAITER<span>BOT</span></span> system. <br />
+      Before continue, you have to have property id which you can request from
+      us upon registration.
+    </MainDetailArea>
+    <slot />
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
+import MainDetailArea from "@/components/MainDetailArea.vue";
 export default {
-  name: 'Home',
+  name: "Home",
   components: {
-    HelloWorld
-  }
-}
+    MainDetailArea,
+  },
+  created() {
+    this.$emit("update:layout", "div");
+  },
+};
 </script>
