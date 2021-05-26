@@ -1,10 +1,10 @@
 <template>
   <div>
     <EndPointComponent
-      urlEndPoint="/items/:id/setAvailability"
-      description="set availability of the food"
+      urlEndPoint="/foodreviews/:id"
       method="patch"
-      :accessList="['OPERATOR only']"
+      description="Edit food item review details"
+      :accessList="['ONE who created only']"
     />
     <ParamsTable :params="headerParams" title="Header parameters" />
     <ParamsTable :params="bodyParams" title="Body parameters" />
@@ -34,35 +34,46 @@ export default {
       ],
       bodyParams: [
         {
-          param: "available",
-          type: "boolean",
-          description: "Food availability (true or false)",
+          param: "stars",
+          type: "Integear",
+          description: "Food rating (1 - 5) (Optional)",
+        },
+        {
+          param: "comment",
+          type: "String",
+          description: "Food review (Optional)",
         },
       ],
-      responseExample: {
-        success: true,
-        message: "Item state has been changed successfully.",
-        data: {
-          available: true,
-        },
-      },
-
       requestExample: {
-        available: true,
+        stars: 4,
+      },
+      responseExample: {
+        data: {
+          _id: "6010a82b64e3aa2f8c09d156",
+          by: "60099e9101e0282c44589fc7",
+          item: "60100d74c1132d1a2877c6cf",
+          stars: 4,
+          comment: "This food is awesome!!",
+          createdAt: "2021-01-26T23:46:13.124Z",
+          updatedAt: "2021-01-26T23:46:13.124Z",
+          __v: 0,
+        },
+        message: "Review updated successfully.",
+        success: true,
       },
       responses: [
         {
           code: 200,
-          description: "Item state changed successfully!",
+          description: "Food item update successfully completed!",
         },
         {
           code: 401,
           description:
-            "Unauthorized! (Only store operator can perform this action)",
+            "Unauthorized! (Only one who created the review can change that)",
         },
         {
           code: 404,
-          description: "Food item not found!",
+          description: "Review not found!",
         },
         {
           code: 422,

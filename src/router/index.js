@@ -106,6 +106,31 @@ const routes = [
     name: "food-post-reviews",
     component: () => import("../views/food/AddNewFoodReview.vue"),
   },
+  {
+    path: "/robot/robot-get",
+    name: "robot-get",
+    component: () => import("../views/robot/GetRobotDetails.vue"),
+  },
+  {
+    path: "/robot/robot-change-status",
+    name: "robot-change-status",
+    component: () => import("../views/robot/ChangeRobotStatus.vue"),
+  },
+  {
+    path: "/food-review/review-get",
+    name: "food-review-get",
+    component: () => import("../views/reviews/GetItemReviewDetails.vue"),
+  },
+  {
+    path: "/food-review/food-review-change",
+    name: "food-review-change",
+    component: () => import("../views/reviews/EditItemReviewDetails.vue"),
+  },
+  {
+    path: "/food-order/order-get",
+    name: "food-order-get",
+    component: () => import("../views/order/GetOrderDetails.vue"),
+  },
 ];
 
 const router = new VueRouter({

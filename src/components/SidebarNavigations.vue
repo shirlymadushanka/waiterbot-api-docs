@@ -129,7 +129,33 @@ export default {
           },
           {
             name: "Change Robot status",
-            link: { name: "robot-status" },
+            link: { name: "robot-change-status" },
+          },
+        ],
+      },
+      {
+        name: "Food review ENDPOINTS",
+        sublinks: [
+          {
+            name: "Get food review details",
+            link: { name: "food-review-get" },
+          },
+          {
+            name: "Change food review details",
+            link: { name: "food-review-change" },
+          },
+        ],
+      },
+      {
+        name: "Food Order ENDPOINTS",
+        sublinks: [
+          {
+            name: "Get food order details",
+            link: { name: "food-order-get" },
+          },
+          {
+            name: "Add new food order",
+            link: { name: "food-order-new" },
           },
         ],
       },

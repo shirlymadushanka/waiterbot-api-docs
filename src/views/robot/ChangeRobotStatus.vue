@@ -1,8 +1,8 @@
 <template>
   <div>
     <EndPointComponent
-      urlEndPoint="/items/:id/setAvailability"
-      description="set availability of the food"
+      urlEndPoint="/robots/:id"
+      description="set robot state"
       method="patch"
       :accessList="['OPERATOR only']"
     />
@@ -34,26 +34,38 @@ export default {
       ],
       bodyParams: [
         {
-          param: "available",
-          type: "boolean",
-          description: "Food availability (true or false)",
+          param: "status",
+          type: "must be one of [Idle, Assigned, Delivering, Delivered]",
+          description: "Current status of the robot",
+        },
+        {
+          param: "table",
+          type: "must be a valid table Id",
+          description: "current assigned table of the robot",
         },
       ],
       responseExample: {
-        success: true,
-        message: "Item state has been changed successfully.",
         data: {
-          available: true,
+          status: "Delivered",
+          _id: "60120196fd6da149a4ad1ecc",
+          property: "6009beb47b6077088836fca5",
+          createdAt: "2021-01-28T00:13:10.688Z",
+          updatedAt: "2021-01-28T00:48:56.595Z",
+          __v: 0,
+          table: "601203069ad16209b8d5498b",
         },
+        message: "Robot updated successfully.",
+        success: true,
       },
 
       requestExample: {
-        available: true,
+        status: "Delivered",
+        table: "601203069ad16209b8d5498b",
       },
       responses: [
         {
           code: 200,
-          description: "Item state changed successfully!",
+          description: "Robot state changed successfully!",
         },
         {
           code: 401,
@@ -62,7 +74,7 @@ export default {
         },
         {
           code: 404,
-          description: "Food item not found!",
+          description: "Robot/Table not found!",
         },
         {
           code: 422,
