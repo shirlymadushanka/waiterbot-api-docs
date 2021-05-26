@@ -61,6 +61,10 @@ export default {
           code: 200,
           description: "Items fetched successfully!",
         },
+        {
+          code: 404,
+          description: "Store not found!",
+        },
       ],
     };
   },

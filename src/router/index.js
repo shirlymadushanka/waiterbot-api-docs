@@ -76,6 +76,36 @@ const routes = [
     name: "store-get-orders",
     component: () => import("../views/store/GetOrderDetails.vue"),
   },
+  {
+    path: "/food/get-food",
+    name: "food-get",
+    component: () => import("../views/food/GetFoodItemDetails.vue"),
+  },
+  {
+    path: "/food/edit-remove-food",
+    name: "food-edit-remove",
+    component: () => import("../views/food/EditRemoveFoodItemDetails.vue"),
+  },
+  {
+    path: "/food/add-remove-food-image",
+    name: "food-image-add-remove",
+    component: () => import("../views/food/AddOrRemoveFoodImage.vue"),
+  },
+  {
+    path: "/food/set-food-availability",
+    name: "food-set-availability",
+    component: () => import("../views/food/FoodItemSetAvailability.vue"),
+  },
+  {
+    path: "/food/food-reviews",
+    name: "food-get-reviews",
+    component: () => import("../views/food/GetAllFoodReviews.vue"),
+  },
+  {
+    path: "/food/add-food-reviews",
+    name: "food-post-reviews",
+    component: () => import("../views/food/AddNewFoodReview.vue"),
+  },
 ];
 
 const router = new VueRouter({

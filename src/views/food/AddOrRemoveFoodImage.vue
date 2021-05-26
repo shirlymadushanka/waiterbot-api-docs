@@ -1,8 +1,8 @@
 <template>
   <div>
     <EndPointComponent
-      urlEndPoint="/properties/:id/image"
-      description="Add store image"
+      urlEndPoint="/items/:id/image"
+      description="Add food item image"
       method="post"
       :accessList="['OWNER only']"
     />
@@ -18,7 +18,7 @@
     <ResponseTable :responses="responses" title="Expected responses" />
     <hr class="mb-4" />
     <EndPointComponent
-      urlEndPoint="/properties/:id/image"
+      urlEndPoint="/items/:id/image"
       description="Remove store image"
       method="delete"
       :accessList="['OWNER only']"
@@ -69,7 +69,7 @@ export default {
       responses: [
         {
           code: 200,
-          description: "Stores image updated successfully!",
+          description: "Food item image updated successfully!",
         },
         {
           code: 401,
@@ -78,7 +78,7 @@ export default {
         },
         {
           code: 404,
-          description: "Store not found!",
+          description: "Food item not found!",
         },
         {
           code: 422,
@@ -88,16 +88,12 @@ export default {
       responsesImageRemove: [
         {
           code: 200,
-          description: "Stores image removed successfully!",
+          description: "Food item image removed successfully!",
         },
         {
           code: 401,
           description:
             "Unauthorized! (Only store owner can performe this action)",
-        },
-        {
-          code: 404,
-          description: "Store not found!",
         },
       ],
     };
@@ -107,9 +103,6 @@ export default {
     EndPointComponent,
     ExampleReqResObjects,
     ResponseTable,
-  },
-  created() {
-    this.$emit("update:layout", "StoreMain");
   },
 };
 </script>

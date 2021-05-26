@@ -1,23 +1,16 @@
 <template>
   <div>
     <EndPointComponent
-      urlEndPoint="/properties/:propertyId/tables/:tableId"
-      description="Edit table data"
+      urlEndPoint="/items/:id/setAvailability"
+      description="set availability of the food"
       method="patch"
-      :accessList="['OWNER only']"
+      :accessList="['OPERATOR only']"
     />
     <ParamsTable :params="headerParams" title="Header parameters" />
     <ParamsTable :params="bodyParams" title="Body parameters" />
     <ExampleReqResObjects
       :requestExample="requestExample"
       :responseExample="responseExample"
-    />
-    <hr class="mb-4" />
-    <EndPointComponent
-      urlEndPoint="/properties/:propertyId/tables/:tableId"
-      description="Delete table data"
-      method="delete"
-      :accessList="['OWNER only']"
     />
     <ResponseTable :responses="responses" title="Expected responses" />
   </div>
@@ -41,43 +34,26 @@ export default {
       ],
       bodyParams: [
         {
-          param: "turn_direction",
-          type: "left or right",
-          description: "Junction turn direction of the table (Optional)",
-        },
-        {
-          param: "junction",
-          type: "Integear",
-          description: "Junction of the table (Optional)",
-        },
-        {
-          param: "table_number",
-          type: "Integear",
-          description: "Table number (Optional)",
+          param: "available",
+          type: "boolean",
+          description: "Food availability (true or false)",
         },
       ],
       responseExample: {
-        data: {
-          turn_direction: "left",
-          _id: "6011e229f94ee1415029714d",
-          property: "6009beb47b6077088836fca5",
-          table_number: "10",
-          junction: 4,
-          createdAt: "2021-01-27T21:59:05.320Z",
-          updatedAt: "2021-01-27T23:21:53.759Z",
-          __v: 0,
-        },
-        message: "Table updated successfully.",
         success: true,
+        message: "Item state has been changed successfully.",
+        data: {
+          available: true,
+        },
       },
+
       requestExample: {
-        table_number: 10,
-        junction: 4,
+        available: true,
       },
       responses: [
         {
           code: 200,
-          description: "Stores updated/deleted successfully!",
+          description: "Item state changed successfully!",
         },
         {
           code: 401,
@@ -86,7 +62,7 @@ export default {
         },
         {
           code: 404,
-          description: "Store not found!",
+          description: "Food item not found!",
         },
         {
           code: 422,
@@ -100,9 +76,6 @@ export default {
     EndPointComponent,
     ExampleReqResObjects,
     ResponseTable,
-  },
-  created() {
-    this.$emit("update:layout", "StoreMain");
   },
 };
 </script>

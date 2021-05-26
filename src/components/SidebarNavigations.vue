@@ -92,16 +92,44 @@ export default {
         ],
       },
       {
-        name: "OPERATOR ENDPOINTS",
-        link: "/",
+        name: "FOOD ITEM ENDPOINTS",
         sublinks: [
           {
-            name: "Introduction",
-            link: "/",
+            name: "Get Food item",
+            link: { name: "food-get" },
           },
           {
-            name: "Authentication methods",
-            link: "/about",
+            name: "Edit/Remove food item",
+            link: { name: "food-edit-remove" },
+          },
+          {
+            name: "Update/remove food item image",
+            link: { name: "food-image-add-remove" },
+          },
+          {
+            name: "Change food availability",
+            link: { name: "food-set-availability" },
+          },
+          {
+            name: "Get all food reviews",
+            link: { name: "food-get-reviews" },
+          },
+          {
+            name: "Post a food review",
+            link: { name: "food-post-reviews" },
+          },
+        ],
+      },
+      {
+        name: "ROBOT ENDPOINTS",
+        sublinks: [
+          {
+            name: "Get Robot details",
+            link: { name: "robot-get" },
+          },
+          {
+            name: "Change Robot status",
+            link: { name: "robot-status" },
           },
         ],
       },

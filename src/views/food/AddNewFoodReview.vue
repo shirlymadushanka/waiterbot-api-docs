@@ -1,10 +1,10 @@
 <template>
   <div>
     <EndPointComponent
-      urlEndPoint="/properties/:id/tables"
+      urlEndPoint="/items/:id/reviews"
       method="post"
-      description="Register a table in the store"
-      :accessList="['OWNER only']"
+      description="add new review for a food"
+      :accessList="['clients after order creation']"
     />
     <ParamsTable :params="headerParams" title="Header parameters" />
     <ParamsTable :params="bodyParams" title="Body parameters" />
@@ -34,53 +34,40 @@ export default {
       ],
       bodyParams: [
         {
-          param: "turn_direction",
-          type: "left or right",
-          description: "Junction turn direction of the table",
+          param: "starts",
+          type: "Integear",
+          description: "rating for the food (1 - 5)",
         },
         {
-          param: "junction",
-          type: "Integear",
-          description: "Junction of the table",
-        },
-        {
-          param: "table_number",
-          type: "Integear",
-          description: "Table number",
+          param: "comment",
+          type: "String",
+          description: "review for the food item",
         },
       ],
       requestExample: {
-        table_number: 3,
-        junction: 2,
-        turn_direction: "left",
+        stars: 3,
+        comment: "This is awesome. Yummy!!!",
       },
       responseExample: {
         data: {
-          turn_direction: "left",
-          _id: "6011e229f94ee1415029714d",
-          property: "6009beb47b6077088836fca5",
-          table_number: "3",
-          junction: 2,
-          createdAt: "2021-01-27T21:59:05.320Z",
-          updatedAt: "2021-01-27T21:59:05.320Z",
-          __v: 0,
+          stars: 3,
+          comment: "This is awesome. Yummy!!!",
         },
-        message: "Table created successfully.",
+        message: "Review added successfully.",
         success: true,
       },
       responses: [
         {
           code: 201,
-          description: "Table creation successfully completed!",
-        },
-        {
-          code: 401,
-          description:
-            "Unauthorized! (Only shop owner can perform this action)",
+          description: "Food review successfully added!",
         },
         {
           code: 404,
-          description: "Store not found!",
+          description: "Food item not found!",
+        },
+        {
+          code: 401,
+          description: "Unauthorized! (client must be logged In)",
         },
         {
           code: 422,
@@ -94,9 +81,6 @@ export default {
     EndPointComponent,
     ExampleReqResObjects,
     ResponseTable,
-  },
-  created() {
-    this.$emit("update:layout", "StoreMain");
   },
 };
 </script>

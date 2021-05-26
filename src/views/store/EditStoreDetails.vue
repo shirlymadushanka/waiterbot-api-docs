@@ -84,6 +84,10 @@ export default {
             "Unauthorized! (Only store owner can perform this action)",
         },
         {
+          code: 404,
+          description: "Store not found!",
+        },
+        {
           code: 422,
           description: "Unprocessable entity!",
         },

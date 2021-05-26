@@ -55,6 +55,10 @@ export default {
           description:
             "Unauthorized! (Only shop owner or operator can perform this action)",
         },
+        {
+          code: 404,
+          description: "Store not found!",
+        },
       ],
     };
   },
