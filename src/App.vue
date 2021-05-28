@@ -5,7 +5,7 @@
         <v-avatar color="primary" size="56">
           <img :src="getBrandImage" alt="waiterBot" />
         </v-avatar>
-        <h3 class="brandName ml-2">WAITER<span>BOT</span> Docs</h3>
+        <h3 class="brandName ml-2">WAITER<span>BOT</span> API Docs</h3>
       </v-row>
       <SidebarNavigations />
     </v-navigation-drawer>

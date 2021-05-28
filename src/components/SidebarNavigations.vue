@@ -154,8 +154,8 @@ export default {
             link: { name: "food-order-get" },
           },
           {
-            name: "Add new food order",
-            link: { name: "food-order-new" },
+            name: "Place new food order",
+            link: { name: "food-order-place" },
           },
         ],
       },

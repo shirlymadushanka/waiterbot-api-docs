@@ -131,6 +131,11 @@ const routes = [
     name: "food-order-get",
     component: () => import("../views/order/GetOrderDetails.vue"),
   },
+  {
+    path: "/food-order/order-place",
+    name: "food-order-place",
+    component: () => import("../views/order/AddNewOrderDetails.vue"),
+  },
 ];
 
 const router = new VueRouter({

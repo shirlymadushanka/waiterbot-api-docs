@@ -10,7 +10,7 @@
           {{ access.toUpperCase() }}
         </h6>
       </div>
-      <v-btn :class="`endpoint__btn ${method}`">
+      <v-btn v-if="showMethod" :class="`endpoint__btn ${method}`">
         {{ method.toUpperCase() }}
       </v-btn>
       <h4>{{ urlEndPoint }}</h4>
@@ -33,6 +33,9 @@ export default {
     },
     accessList: {
       default: [],
+    },
+    showMethod: {
+      default: true,
     },
   },
 };
